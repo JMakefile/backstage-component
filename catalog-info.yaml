@@ -18,3 +18,24 @@ spec:
   lifecycle: experimental
   owner: admins
   system: admin-dashboard-system
+
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-system
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: developer-dashboard-system
+spec:
+  owner: developers
+
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: developer-dashboard
+spec:
+  type: website
+  lifecycle: experimental
+  owner: developers
+  system: developer-dashboard-system
