@@ -1,0 +1,37 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: test-api
+  description: A default test api from GitLab
+  annotations:
+    gitlab.com/project-id: '62858826'
+    backstage.io/source-location: url:https://gitlab.com/jj-test1/backstage-test/
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: teamA
+  definition: |
+    openapi: 3.0.1
+    info:
+      title: Test REST API
+      description: A REST API as an example.
+      version: "2.0"
+    paths:
+      /api/system/status:
+        get:
+          summary: Get system health
+          responses:
+            "200":
+              description: System status
+              content:
+                application/json:
+                  examples:
+                    example:
+                      value:
+                        {
+                          "status": "OK",
+                          "timestamp": ""
+                        }
+            "500":
+              description: Internal Server Error
